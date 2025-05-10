@@ -5,6 +5,9 @@ from core.structure.specialities.warrior import Warrior
 import random
 import time
 
+# OWN MAIN JUST TO TEST BEFORE ALL TEAM STARTS
+
+
 print("Heros at the beginning of battle:")
 w1 = Warrior('SwordMaster', 500, 100, 250)
 m1 = Mage('LightingsLord', 300, 50, 400)

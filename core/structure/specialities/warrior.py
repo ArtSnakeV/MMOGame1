@@ -3,7 +3,7 @@ from typing import final
 from core.structure.base.hero import Hero
 
 
-class Warrior(Hero): # Множинне наслідування від Hero і ABC
+class Warrior(Hero, ABC): # Множинне наслідування від Hero і ABC
     def __init__(self, name: str, hp: int, max_attack: int, armor: int):
         # super() звертання до елементів батьківського класу # приклад: super().name # приклад звертання до елемента батьківського класу
         # super().__init__() виклик конструктора батьківського класу
@@ -50,6 +50,15 @@ class Warrior(Hero): # Множинне наслідування від Hero і 
                 super().take_damage(damage_effective)
                 return
         super().take_damage(damage)
+
+    def __repr__(self):
+        return (f"{self.__class__.__name__}("
+                f"name={self.name!r}, "
+                f"hp={self.hp}, "
+                f"max_attack={self.max_attack}, "
+                f"is_alive={self.is_alive}, "
+                f"armor={self.armor}"
+                f")")
 
 
     def make_attack(self) ->int:

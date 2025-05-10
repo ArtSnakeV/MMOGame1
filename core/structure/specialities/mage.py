@@ -4,12 +4,12 @@ import random
 from core.structure.base.hero import Hero
 
 
-class Mage(Hero): # Множинне наслідування від Hero і ABC
+class Mage(Hero, ABC): # Множинне наслідування від Hero і ABC
     def __init__(self, name: str, hp: int, max_attack: int, mana: int):
         # super() звертання до елементів батьківського класу # приклад: super().name # приклад звертання до елемента батьківського класу
         # super().__init__() виклик конструктора батьківського класу
         super().__init__(name, hp, max_attack)
-        self.__mana = mana
+        self.mana = mana
 
     # @final
     # @property
@@ -49,6 +49,15 @@ class Mage(Hero): # Множинне наслідування від Hero і ABC
                 if self.mana == other.mana:
                     return True
         return False
+
+    def __repr__(self):
+        return (f"{self.__class__.__name__}("
+                f"name={self.name!r}, "
+                f"hp={self.hp}, "
+                f"max_attack={self.max_attack}, "
+                f"is_alive={self.is_alive}, "
+                f"mana={self.mana}"
+                f")")
 
     # Метод атаки
     def make_attack(self) -> int:
